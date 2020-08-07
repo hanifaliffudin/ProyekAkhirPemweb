@@ -28,7 +28,7 @@
     <header class="site-header js-site-header">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Hotel Sekawan</a></div>
+                <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="<?php echo base_url(); ?>">Hotel Sekawan</a></div>
                 <div class="col-6 col-lg-8">
                 </div>
             </div>
@@ -50,7 +50,8 @@
                                 <td>Tipe Kamar</td>
                                 <td>Jumlah tamu</td>
                                 <td>Catatan</td>
-                                <td>Pembayaran</td>
+                                <td>Nomor Pembayaran</td>
+                                <td>Bayar</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,6 +66,7 @@
                                 $tipe = $i['tipekamar'];
                                 $tamu = $i['tamu'];
                                 $cttn = $i['catatan'];
+                                $nopbyrn = $i['nopembayaran'];
                             ?>
                                 <tr>
                                     <td><?php echo $nama; ?> </td>
@@ -75,11 +77,16 @@
                                     <td><?php echo $tipe; ?> </td>
                                     <td><?php echo $tamu; ?> </td>
                                     <td><?php echo $cttn; ?> </td>
-                                    <td><a href=" <?php echo base_url('hotel/bayar/' . $telp); ?>">Bayar</a> </td>
+                                    <td><?php echo $nopbyrn; ?></td>
+                                    <td><a href=" <?php echo base_url('hotel/bayar/' . $nopbyrn); ?>">Bayar</a> </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                    <a href="<?php echo base_url(); ?>">
+                        <h3>Home</h3>
+                    </a>
+                    <!-- <h3>Home</h3> -->
                 </div>
             </div>
         </div>

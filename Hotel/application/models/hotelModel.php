@@ -1,7 +1,7 @@
 <?php
 class hotelModel extends CI_Model
 {
-    public function insert_tamu($nama, $telp, $email, $checkin, $checkout, $tipe, $tamu, $cttn)
+    public function insert_tamu($nama, $telp, $email, $checkin, $checkout, $tipe, $tamu, $cttn, $nopbyrn)
     {
         $this->load->database();
         $data = array(
@@ -12,7 +12,8 @@ class hotelModel extends CI_Model
             'checkout' => $checkout,
             'tipekamar' => $tipe,
             'tamu' => $tamu,
-            'catatan' => $cttn
+            'catatan' => $cttn,
+            'nopembayaran' => $nopbyrn
         );
         $this->db->insert('user', $data);
     }
@@ -24,20 +25,20 @@ class hotelModel extends CI_Model
     }
     public function ambilData()
     {
-        return $this->db->query("SELECT * FROM user");
+        return $this->db->query("SELECT * FROM user where statusBayar = 0");
     }
     //    public function ambilData2($id){
     //        return $this->db->query("SELECT * FROM user WHERE id = '$id'");
     //    }
-    public function bayarUser($telp)
+    public function bayarUser($nopbyrn)
     {
         $this->load->database();
-        $this->db->query("UPDATE user SET statusBayar = TRUE WHERE telp = '$telp'");
+        $this->db->query("UPDATE user SET statusBayar = TRUE WHERE nopembayaran = '$nopbyrn'");
     }
-    public function get_post($telp)
+    public function get_post($nopbyrn)
     {
         $this->load->database();
-        $query = $this->db->query("SELECT * FROM user where telp='$telp'");
+        $query = $this->db->query("SELECT * FROM user where nopembayaran='$nopbyrn'");
         return $query->result();
     }
 }

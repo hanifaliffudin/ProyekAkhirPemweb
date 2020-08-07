@@ -24,10 +24,11 @@ class hotel extends CI_Controller
         $tipe = $this->input->post('tipe');
         $tamu = $this->input->post('tamu');
         $cttn = $this->input->post('message');
+        $nopbyrn = date("Ymdhis");
 
         $this->load->helper('url');
         $this->load->model('hotelModel');
-        $this->hotelModel->insert_tamu($nama, $telp, $email, $checkin, $checkout, $tipe, $tamu, $cttn);
+        $this->hotelModel->insert_tamu($nama, $telp, $email, $checkin, $checkout, $tipe, $tamu, $cttn, $nopbyrn);
         $this->load->view('abisPesan');
     }
     public function dataPemesanan()
@@ -37,18 +38,18 @@ class hotel extends CI_Controller
         $data['user'] = $this->hotelModel->ambilData();
         $this->load->view('dataPemesanan', $data);
     }
-    public function bayar($telp)
+    public function bayar($nopbyrn)
     {
         $this->load->helper('url');
         $this->load->model('hotelModel');
-        $this->hotelModel->bayarUser($telp);
-        $this->pembayaran($telp);
+        $this->hotelModel->bayarUser($nopbyrn);
+        $this->pembayaran($nopbyrn);
     }
-    public function pembayaran($telp)
+    public function pembayaran($nopbyrn)
     {
         $this->load->helper('url');
         $this->load->model('hotelModel');
-        $posts = $this->hotelModel->get_post($telp);
+        $posts = $this->hotelModel->get_post($nopbyrn);
         $data['posts'] = $posts;
         $this->load->view('pembayaran', $data);
     }

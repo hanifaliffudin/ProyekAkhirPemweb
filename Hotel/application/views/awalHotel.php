@@ -164,6 +164,7 @@
                     <h2 class="text-white font-weight-bold">Tempat Terbaik Untuk Menginap, Pesan Sekarang!</h2>
                 </div>
                 <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+                    <a href="<?php echo base_url('hotel/dataPemesanan/'); ?>" class="btn btn-outline-white-primary py-1 text-white px-3 mx-5">Data Pemesan</a>
                     <a href="<?php echo base_url('hotel/pesan/'); ?>" class="btn btn-outline-white-primary py-3 text-white px-5">Pesan</a>
                 </div>
             </div>
