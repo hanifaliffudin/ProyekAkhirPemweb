@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label class="text-black font-weight-bold" for="tlp">Telepon</label>
-                                <input type="tel" id="tlp" name="telp" class="form-control ">
+                                <input type="tel" id="tlp" name="telp" class="form-control">
                             </div>
                         </div>
 
