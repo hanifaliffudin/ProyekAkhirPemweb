@@ -28,9 +28,7 @@
     <header class="site-header js-site-header">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="index.html">Hotel Sekawan</a></div>
-                <div class="col-6 col-lg-8">
-                </div>
+                <div class="col-6 col-lg-4 site-logo" data-aos="fade"><a href="<?php echo base_url(); ?>">Hotel Sekawan</a></div>
             </div>
         </div>
     </header>
@@ -59,14 +57,31 @@
                         $hargaAkhir = "-";
                     }
                     ?>
-                    <h4 class="p-1 mb-0">Jenis kamar: <?php echo $jenisKamar; ?> </h4>
-                    <h4 class="p-1 mb-0">Harga normal: Rp.<?php echo $hargaNormal; ?> </h4>
-                    <h4 class="p-1 mb-0">Harga naik: Rp.<?php echo $hargaAkhir; ?> </h4>
-                    <h4 class="mb-0 p-1">Lama menginap: <?php echo $lamaNginap; ?> hari</h4>
-                    <h4 class="mb-3 p-1">Harga total: Rp.<?php echo $hargaTotal; ?> </h4>
+                    <table class="table table-dark">
+                        <tr>
+                            <th>Jenis kamar:</th>
+                            <td><?php echo $jenisKamar; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Harga normal: </th>
+                            <td>Rp. <?php echo $hargaNormal; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Harga naik: </th>
+                            <td>Rp. <?php echo $hargaAkhir; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Lama menginap: </th>
+                            <td><?php echo $lamaNginap; ?> hari</td>
+                        </tr>
+                        <tr>
+                            <th>Harga total: </th>
+                            <td>Rp. <?php echo $hargaTotal; ?></td>
+                        </tr>
+                    </table>
                     <?php $specialCode = ($hargaTotal + (rand(111, 999))); ?>
-                    <h4 class="mb-0">silahkan bayar sesuai nominal berikut sampai 3 digit terakhir!</h4>
-                    <h3 class="mb-0 p-3">Rp.<?php echo $specialCode; ?> </h3>
+                    <h4 class="mb-0">Bayar sesuai nominal berikut sampai 3 digit terakhir!</h4>
+                    <h3 class="mb-0 p-3">Rp. <?php echo $specialCode; ?> </h3>
                     <p></p>
                     <h3><a href="<?php echo base_url(); ?>">Home</a></h3>
                 </div>
